@@ -16,8 +16,14 @@ struct ContentView: View {
         VStack{
             
             
-            TextField("¿A donde deseas viajar?", text: $place).padding()
-            Text("Viajaremos a \(place)")
+            TextField("¿A dónde deseas viajar?", text: $place)
+                .textInputAutocapitalization(.words)
+                   .disableAutocorrection(true)
+                .padding()
+            
+            GroupBox(){
+                Text("Viajaremos a \(place)")
+            }
             
             ScrollView(.horizontal){
                 HStack(){
@@ -47,8 +53,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         ContentView()
-    }
 }

@@ -14,20 +14,32 @@ struct MeansOfTransportView: View {
     @Binding var pressed : Bool
     
     var body: some View {
-        
-        Label(name, systemImage: icon)
-            .rotationEffect(Angle(degrees: pressed ? 180 : 0))
-            .modifier(CardViewModifier())
-            .onTapGesture {
-                withAnimation(){
-                    self.pressed.toggle()
+        VStack{
+            Label(name, systemImage: icon)
+                .rotationEffect(Angle(degrees: pressed ? 180 : 0))
+                .modifier(CardViewModifier())
+                .onTapGesture {
+                    withAnimation(){
+                        self.pressed.toggle()
+                    }
                 }
+          
+            if pressed {
+              
+                    Image(systemName: "figure.run")
+                    .foregroundColor(.white)
+                        .padding(8)
+                        .background(Color.blue)
+                        .clipShape(Ellipse())
+                        .transition(.slide)
+                
             }
+        }
+        
     }
 }
 
-struct MeansOfTransportView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         MeansOfTransportView(name: "Medio de transporte", icon: "car", pressed: .constant(false))
-    }
+    
 }

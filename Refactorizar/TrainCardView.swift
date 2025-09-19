@@ -50,8 +50,6 @@ struct TrainCardView: View {
     }
 }
 
-struct TrainCardView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         TrainCardView(name: "Tren de Prueba", iconColor: Color.red)
-    }
 }
